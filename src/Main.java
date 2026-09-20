@@ -2,16 +2,16 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
+        Scanner entrada = new Scanner(System.in);
+        double somaGeral = 0;
 
         System.out.println("==================");
         System.out.println("SISTEMA DE ESTOQUE");
         System.out.println("==================");
 
-        Scanner entrada = new Scanner(System.in);
+       
         System.out.print("Quantos produtos deseja cadastrar?");
         int qtdProdutos = entrada.nextInt();
-
-        double somaGeral = 0;
 
         for (int i = 1; i < qtdProdutos + 1; i++) {
             System.out.print("Nome do " + i + "º produto:");
