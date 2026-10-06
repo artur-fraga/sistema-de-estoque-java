@@ -16,21 +16,12 @@ public class Main {
         int qtdProdutos = entrada.nextInt();
         entrada.nextLine();
 
-        for (int i = 1; i < qtdProdutos + 1; i++) {
-            System.out.print("Nome do " + i + "º produto:");
-            String nomeProduto = entrada.nextLine();
-            System.out.print("Preço do produto: R$");
-            double precoProduto = entrada.nextDouble();
-            System.out.print("Quantidade em estoque:");
-            int qtdEstoque = entrada.nextInt();
-            entrada.nextLine();
-            
-            Produto p = new Produto(nomeProduto, precoProduto, qtdEstoque);
-            produtos.add(p); 
-
-
-            somaGeral += p.getPreco() * p.getQuantidade();
-
+        
+            Cadastro cadastro = new Cadastro(entrada);
+            for (int i = 1; i < qtdProdutos + 1; i++) {
+                Produto p =cadastro.cadastrarProduto(i);
+                produtos.add(p); 
+                somaGeral += p.getPreco() * p.getQuantidade();
         }
 
         System.out.println(" ");
