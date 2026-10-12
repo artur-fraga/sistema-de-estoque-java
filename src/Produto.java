@@ -20,7 +20,8 @@ public class Produto {
     public int getQuantidade(){
         return quantidade;
     }
- 
+    
+    @Override 
     public String toString(){
         return String.format("%-15s R$%-10.2f Qtd: %d", nome, preco, quantidade);
     }
