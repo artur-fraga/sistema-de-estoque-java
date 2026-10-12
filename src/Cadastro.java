@@ -8,8 +8,8 @@ public class Cadastro {
 
     }
         public Produto cadastrarProduto(int numero){
-            System.out.print("Nome do produto: ");
-            String nome = entrada.next();
+            System.out.print("Nome do " + numero + "º produto: ");
+            String nome = entrada.nextLine();
             System.out.print("Preço do Produto: R$");
             double preco = entrada.nextDouble();
             System.out.print("Quantidade em estoque: ");
