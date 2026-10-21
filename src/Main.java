@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,11 +19,21 @@ public class Main {
         entrada.nextLine();
 
         
-            Cadastro cadastro = new Cadastro(entrada);
-            for (int i = 1; i < qtdProdutos + 1; i++) {
-                Produto p =cadastro.cadastrarProduto(i);
-                produtos.add(p); 
-                somaGeral += p.getPreco() * p.getQuantidade();
+        Cadastro cadastro = new Cadastro(entrada);
+        for (int i = 1; i < qtdProdutos + 1; i++) {
+            Produto p =cadastro.cadastrarProduto(i);
+            produtos.add(p); 
+            somaGeral += p.getPreco() * p.getQuantidade();
+        }
+
+        try {
+            FileWriter escritor = new FileWriter("estoque.csv");
+            for (Produto p : produtos) {
+                escritor.write(p.getNome() + "," + p.getPreco() + "," + p.getQuantidade() + "\n");
+            }
+            escritor.close();
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar arquivo: " + e.getMessage());
         }
 
         System.out.println(" ");
